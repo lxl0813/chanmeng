@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="/static/jquery.min.js"></script>
+
+
+
+
+</head>
+<body>
+    <a><p lang="zh" class="change">{:lang('lang_zh')}</p></a>
+    <a><p lang="en" class="change">{:lang('lang_en')}</p></a>
+
+    <p>{:lang('lang_var')}</p>
+</body>
+<script>
+    $('.change').click(function(){
+        var data={'lang':$(this).attr('lang')};
+        $.get("{:url('Lang/changeLang')}",data,function(){
+            location.reload();
+        })
+    })
+</script>
+</html>
